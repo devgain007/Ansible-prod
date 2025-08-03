@@ -1,0 +1,13 @@
+---
+- name: Create users on all the servers
+  hosts: all
+  tasks:
+      - name: User creation
+        user:
+            name: Dev
+            password: Dev123
+            uid: 2004
+            home: /tmp/dev
+            shell: /bin/sh
+            comment: "A super user"
+...
