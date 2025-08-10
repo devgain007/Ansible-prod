@@ -1,0 +1,9 @@
+1 command -m 
+2 shell --m 
+3 user (name,password,uid,comment,home,shell,state) --m
+4 file/dir  (name,state,owner,group,mode) --m
+5 apt (name,state,update_cache,purge)--m
+6 service (name,state) --m
+7 uri (url,status_code) --m
+8 get_url (url,dest)--m
+9 replace (regexp,replace,path) eg:port 8080--m 
