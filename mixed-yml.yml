@@ -1,0 +1,22 @@
+---
+- name: creating users and copy the file into user home and change the permission
+  hosts: all
+  tasks:
+    - name: create users
+      user:
+        name: gabi
+        password: gabi123
+        home: /tmp/gabi
+        comment: A super user
+    - name: copt the passwd file
+      copy:
+        src: /etc/passwd
+        dest: /tmp/gabi
+    - name: change permission of the file that we copied
+      file:
+        name: /tmp/gabi/passwd
+        state: touch
+        mode: 750
+        owner: gabi
+        group: root
+...                                                                                                               1,3           Top
