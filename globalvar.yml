@@ -1,0 +1,10 @@
+---
+- name : working on global scope variable
+  hosts: all
+  tasks:
+    - name: installing and unstall apps
+      apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+...
