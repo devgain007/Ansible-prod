@@ -1,0 +1,17 @@
+---
+- name: install tomcat10 using playscope variables
+  hosts: all
+  vars:
+    a: tomcat10
+    b: present
+    c: yes
+  tasks:
+    - name: installaion of apps
+      apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+
+
+
+...
