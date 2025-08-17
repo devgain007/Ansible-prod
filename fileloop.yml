@@ -1,0 +1,21 @@
+---
+- name : looping concept using file module
+  hosts: all
+  tasks:
+    - name: giving variables for using file
+      user:
+        name: "{{item.a}}"
+        password: "{{item.b}}"
+        home: "{{item.c}}"
+      with_items:
+        - {a: dev,b: deb123,c: /home/dev}
+        - {a: devil,b: devil2003,c: /tmp/devil}
+    - name: copying one location to another
+      copy:
+         src: "{{item.a}}"
+         dest: "{{item.b}}"
+      with_items:
+         - {a: /etc/passwd, b: /home/dev}
+         - {a: /etc/group, b: /tmp/devil}
+
+...
