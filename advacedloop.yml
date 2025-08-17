@@ -1,0 +1,16 @@
+- name: working multiple things using variables
+  hosts: all
+  tasks:
+    - name: assigning variables to use
+      apt:
+        name: "{{item.a}}"
+        state: "{{item.b}}"
+        update_cache: "{{item.c}}"
+      with_items:
+         - {a: git,b: present,c: yes}
+         - {a: maven,b: absent,c: no}
+         - {a: tree,b: latest,c: yes}
+
+
+
+...
