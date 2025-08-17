@@ -1,0 +1,22 @@
+---
+- name: implementing handler
+  hosts: all
+  tasks:
+    - name: install apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+    - name: editing tomcat-user.xml file
+      copy:
+        content: "The Content Got Changed"
+        dest: /var/www/html/index.html
+      notify: restart apache2
+  handlers:
+    - name: restart apache2
+      service:
+         name: apache2
+         state: restarted
+
+    ...
+                                                                                                                          1,1           Top
