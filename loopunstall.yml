@@ -1,0 +1,15 @@
+---
+- name: unstalling apps
+  hosts: all
+  tasks:
+    - name: unstall the apps
+      apt:
+        name: "{{item}}"
+        state: absent
+        update_cache: no
+      with_items:
+        - maven
+        - git
+        - tree
+
+...
